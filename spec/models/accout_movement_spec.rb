@@ -7,7 +7,7 @@ RSpec.describe AccountMovement, type: :model do
     it { is_expected.to validate_presence_of(:amount) }
     it { is_expected.to validate_numericality_of(:amount).is_greater_than(0.0) }
 
-    it { is_expected.to define_enum_for(:operator).with(%w[addition subtraction]) }
+    it { is_expected.to define_enum_for(:operator).with_values(%w[addition subtraction]) }
   end
 
   describe 'Associations' do
