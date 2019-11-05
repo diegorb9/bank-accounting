@@ -7,8 +7,6 @@ module RequestMacros
 
   def basic_headers(token)
     {
-      'Accept' => Mime[:json].to_s,
-      'Content-type' => Mime[:json].to_s,
       'HTTP_AUTHORIZATION' => ActionController::HttpAuthentication::Token
         .encode_credentials(token)
     }

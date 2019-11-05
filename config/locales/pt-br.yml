@@ -4,6 +4,8 @@ pt-BR:
       models:
         transfer_form:
           attributes:
+            source_account_id:
+              insufficient_balance: saldo insuficiente
             destination_account_id:
               blank: não pode ficar em branco
               not_found: não foi encontrada

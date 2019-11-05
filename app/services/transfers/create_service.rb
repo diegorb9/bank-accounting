@@ -40,7 +40,7 @@ module Transfers
     end
 
     def insufficient_balance?
-      repository.balance_of(source_account) >= amount
+      repository.balance_of(source_account) >= amount.to_f
     end
 
     def insufficient_balance_error
