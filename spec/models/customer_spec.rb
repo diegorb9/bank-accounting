@@ -14,6 +14,10 @@ RSpec.describe Customer, type: :model do
     it { is_expected.not_to allow_value('a999009,').for(:document) }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_one(:account).dependent(:restrict_with_error) }
+  end
+
   describe 'Callbacks' do
     describe ':before_create' do
       let(:customer) { build(:customer) }
