@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
 
   def authenticate!
     authenticate_with_http_token do |token, _|
-      @current_account ||= fetch_account(token, params[:account_id])
+      @current_account ||= fetch_account(token, params[:account_id] || params[:source_account_id])
     end || head(:unauthorized)
   end
 
