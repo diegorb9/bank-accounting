@@ -16,14 +16,6 @@ module API
 
       private
 
-      def transfer_params
-        params.require(:transfer).permit(
-          :source_account_id,
-          :destination_account_id,
-          :amount
-        )
-      end
-
       def transfer_form
         TransferForm.new(
           source_account_id: params[:source_account_id],
