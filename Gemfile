@@ -12,6 +12,7 @@ gem 'pg', '~> 1.1.4'
 gem 'puma', '~> 3.12.1'
 
 group :development, :test do
+  gem 'factory_bot_rails', '~> 5.1.1'
   gem 'rspec-rails', '~> 4.0.0.beta3'
   gem 'rubocop-rails', '~> 2.3.2'
 end
