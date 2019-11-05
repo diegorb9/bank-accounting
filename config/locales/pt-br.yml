@@ -1,0 +1,12 @@
+pt-BR:
+  activemodel:
+    errors:
+      models:
+        transfer_form:
+          attributes:
+            destination_account_id:
+              blank: não pode ficar em branco
+              not_found: não foi encontrada
+            amount:
+              not_a_number: deve ser um número
+              greater_than: deve ser maior que %{count}
