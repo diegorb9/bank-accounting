@@ -12,9 +12,6 @@ RSpec.describe Customer, type: :model do
     it { is_expected.to validate_uniqueness_of(:document).case_insensitive }
     it { is_expected.to allow_value('999009').for(:document) }
     it { is_expected.not_to allow_value('a999009,').for(:document) }
-
-    it { is_expected.to validate_presence_of(:access_token) }
-    it { is_expected.to validate_uniqueness_of(:access_token).case_insensitive }
   end
 
   describe 'Callbacks' do
