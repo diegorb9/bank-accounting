@@ -14,8 +14,8 @@ RSpec.describe AccountRepository do
         .with('total').and_return(account_movements)
 
       expect(account_movements).to receive(:select).once.with(
-        'SUM(CASE WHEN operator=0 then amount end) - ' \
-        'SUM(CASE WHEN operator=1 then amount end) as total'
+        'SUM(CASE WHEN operator = 0 THEN amount ELSE 0 END) - ' \
+        'SUM(CASE WHEN operator = 1 THEN amount ELSE 0 END) as total'
       ).and_return(account_movements)
 
       expect(account_movements).to receive_message_chain(:first, :total, :to_f)
