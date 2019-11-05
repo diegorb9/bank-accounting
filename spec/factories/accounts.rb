@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :account do
-    customer { nil }
+    customer
   end
 end

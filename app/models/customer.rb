@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   has_one :account, dependent: :restrict_with_error
 
   before_create :set_access_token
+  before_create { build_account }
 
   private
 

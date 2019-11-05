@@ -2,8 +2,15 @@ inherit_from: .rubocop_todo.yml
 
 require: rubocop-rails
 
+AllCops:
+  DisplayCopNames: true
+
 Style/Documentation:
   Enabled: false
 
 Metrics/LineLength:
   Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'

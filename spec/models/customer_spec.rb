@@ -19,13 +19,23 @@ RSpec.describe Customer, type: :model do
   end
 
   describe 'Callbacks' do
-    describe ':before_create' do
-      let(:customer) { build(:customer) }
+    let(:customer) { build(:customer) }
+    let(:account)  { build(:account, customer: customer) }
 
+    before do
+      allow(AccessTokenGenerator).to receive(:generate).and_return('QWEASD')
+      allow(customer).to receive(:build_account).and_return(account)
+    end
+
+    describe 'before_create' do
       it 'generates and assigns an access token' do
-        expect(AccessTokenGenerator).to receive(:generate).once.and_return('QWEASD')
         customer.run_callbacks :create
         expect(customer.access_token).to eql('QWEASD')
+      end
+
+      it 'builds an account' do
+        customer.run_callbacks :create
+        expect(customer.account).to eql(account)
       end
     end
   end
