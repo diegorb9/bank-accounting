@@ -32,7 +32,7 @@ module Transfers
 
     def perform_transfer
       source_account.with_lock do
-        raise InsufficientBalance unless insufficient_balance?
+        raise InsufficientBalance if insufficient_balance?
 
         repository.increase_balance(destination_account, amount)
         repository.decrease_balance(source_account, amount)
@@ -40,7 +40,7 @@ module Transfers
     end
 
     def insufficient_balance?
-      repository.balance_of(source_account) >= amount.to_f
+      repository.balance_of(source_account) <= amount.to_f
     end
 
     def insufficient_balance_error
