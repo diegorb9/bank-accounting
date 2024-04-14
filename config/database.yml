@@ -6,6 +6,8 @@ default: &default
 development:
   <<: *default
   database: bank_accounting_development
+  username: postgres
+  password: postgres
 
 test:
   <<: *default
